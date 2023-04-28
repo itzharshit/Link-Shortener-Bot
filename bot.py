@@ -8,6 +8,7 @@ from pyrogram import Client, filters
 from pyrogram.types import *
 
 API_ID = environ.get('API_ID')
+DOMAIN = environ.get('DOMAIN')
 API_HASH = environ.get('API_HASH')
 BOT_TOKEN = environ.get('BOT_TOKEN')
 API_KEY = environ.get('API_KEY')
@@ -18,7 +19,14 @@ akbotz = Client('link shortener bot',
              api_hash=API_HASH,
              bot_token=BOT_TOKEN,
              workers=100)
+#fucm off 
 
+HEADERS = {
+    "accept": "application/json",
+    "content-type": "application/json",
+    "Authorization": API_KEY
+}
+#fucm off
 print("Developer: @AKBotZ , Join & Share Channel")
 print("Bot is Started Now")
 
