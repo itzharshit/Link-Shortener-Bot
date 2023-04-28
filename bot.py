@@ -27,7 +27,6 @@ HEADERS = {
     "Authorization": API_KEY
 }
 #fucm off
-print("Developer: @AKBotZ , Join & Share Channel")
 print("Bot is Started Now")
 
 @akbotz.on_message(filters.command('start') & filters.private)
@@ -53,13 +52,14 @@ async def link_handler(bot, message):
 
 
 async def get_shortlink(link):
-    url = API_URL
-    params = {'api': API_KEY, 'url': link}
-
-    async with aiohttp.ClientSession() as session:
-        async with session.get(url, params=params, raise_for_status=True) as response:
-            data = await response.json()
-            return data["shortenedUrl"]
-
+#----------------------------------------------
+    # Connects to the API and returns the shortened URL.
+    payload = {
+        "domain": DOMAIN,
+        "originalURL": link,
+    }
+    response = requests.post(API_URL, json=payload, headers=HEADERS)
+    return response.json()['shortenedUrl']
+#--------------------------------------------------
 
 akbotz.run()
