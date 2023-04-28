@@ -12,7 +12,7 @@ DOMAIN = environ.get('DOMAIN')
 API_HASH = environ.get('API_HASH')
 BOT_TOKEN = environ.get('BOT_TOKEN')
 API_KEY = environ.get('API_KEY')
-API_URL = environ.get('API_URL')
+API_URL = "https://api.short.io/links"
 
 akbotz = Client('link shortener bot',
              api_id=API_ID,
